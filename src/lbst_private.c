@@ -1,5 +1,3 @@
-/* A library for creating and using dictionaries of integer (key, data) pairs */
-
 #include <stdio.h>
 #include "lbst_private.h"
 

@@ -1,5 +1,3 @@
-/* A library for creating and using dictionaries of integer (key, data) pairs */
-
 #ifndef _LBST_PRIVATE_H_
 #define _LBST_PRIVATE_H_
 

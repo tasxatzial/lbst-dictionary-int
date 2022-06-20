@@ -24,7 +24,6 @@ int main() {
 
         /* print dictionary after each insertion */
         lbst_print(root);
-        printf("\n");
     }
 
     /* print full tree */
@@ -38,7 +37,7 @@ int main() {
         printf("%d -> ", key);
         found = lbst_lookup(root, key, &data);
         if (found) {
-            printf("Data: %d\n", data);
+            printf("%d\n", data);
         }
         else {
             printf("Not found\n");
@@ -48,7 +47,6 @@ int main() {
     /* lookup keys in [a, b] */
     printf("----------Range Query [5,8]------------------------\n");
     lbst_range_query(root, 5, 8);
-    printf("\n");
 
     /* delete random keys */
     printf("----------Delete-----------------------------------\n");
@@ -57,7 +55,6 @@ int main() {
         printf("%d:\t", key);
         lbst_delete(root, key);
         lbst_print(root);
-        printf("\n");
     }
 
     /* clear dictionary */
@@ -71,15 +68,13 @@ int main() {
     /* should print nothing */
     printf("Print dictionary: ");
     lbst_print(root);
-    printf("\n");
 
     /* re-use dictionary: insert */
-    printf("Re-use dictionary. Insert <1,1>\n");
+    printf("Re-use dictionary. Insert [1,1]\n");
     lbst_insert(root, 1, 1);
 
     printf("Print dictionary: ");
     lbst_print(root);
-    printf("\n");
     
     /* clear dictionary */
     printf("Clear dictionary\n");
@@ -87,7 +82,6 @@ int main() {
 
     printf("Print dictionary: ");
     lbst_print(root);
-    printf("\n");
 
     /* check if empty */
     printf("Check if dictionary is empty (should print 1): %d\n", lbst_is_empty(root));

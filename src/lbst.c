@@ -1,5 +1,3 @@
-/* A library for creating and using dictionaries of integer (key, data) pairs */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "lbst.h"
@@ -214,11 +212,10 @@ void lbst_delete(lbst_T root, int key) {
 }
 
 
-/* Finds a key in the dictionary.
+/* Searches for a key in the dictionary.
 
-If key is found, return value is 1 and the specified data pointer provides
-access to key data.
-If key is not found, return value is 0 and the specified data pointer should
+If key is found, its data is *data. Return value is 1.
+If key is not found, return value is 0. The specified data pointer should
 be ignored.
 
 Time complexity: O(h) */
@@ -251,7 +248,7 @@ int lbst_lookup(lbst_T root, int key, int *data) {
 }
 
 
-/* Returns 1 if dictionary has no (key, data) pairs, 0 otherwise */
+/* Returns 1 if dictionary has no keys, 0 otherwise */
 int lbst_is_empty(lbst_T root) {
     struct lbst *root_private;
 
@@ -354,10 +351,11 @@ void lbst_range_query(lbst_T root, int first, int last) {
         printf("[%d,%d] ", prev->key, prev->data);
         prev = prev->next;
     }
+    printf("\n");
 }
 
 
-/* Prints the dictionary. (key, data) pairs are sorted by key value.
+/* Prints the dictionary. (key, data) pairs are sorted by key (ascending).
 
 Time complexity: O(h + #keys) */
 void lbst_print(lbst_T root) {
@@ -383,4 +381,5 @@ void lbst_print(lbst_T root) {
         printf("[%d,%d] ", prev->key, prev->data);
         prev = prev->next;
     }
+    printf("\n");
 }
