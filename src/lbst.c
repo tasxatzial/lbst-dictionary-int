@@ -152,6 +152,7 @@ void lbst_delete(lbst_T root, int key) {
         child->rc = NULL;
         root_private->head = NULL;
         free(child);
+        return;
     }
 
     /* start from from the left child of last_right_node and go to
