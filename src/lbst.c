@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "lbst.h"
 #include "lbst_private.h"
 
@@ -13,13 +14,11 @@ Returns 1 on success, else 0.
 
 Time complexity: O(h) */
 int lbst_insert(lbst_T root, int key, int data) {
-    struct lbst *root_private = root;
+    struct lbst *root_private;
     struct lbst_node *ptr, *n1, *n2, *parent, *grparent;
 
-    /* special case: root has not been initialized using lbst_create() */
-    if (root_private == NULL) {
-        return 0;
-    }
+    root_private = root;
+    assert(root_private);
 
     /* special case: 0 (key, data) nodes */
     if (root_private->head == NULL) {
@@ -117,9 +116,7 @@ void lbst_delete(lbst_T root, int key) {
     struct lbst_node *ptr, *ptr2, *child, *parent, *grparent, *last_right_child;
 
     root_private = root;
-    if (root_private == NULL) {
-        return;
-    }
+    assert(root_private);
 
     /* traverse the tree based on the key and find the leaf node that
     has the key */
@@ -224,9 +221,7 @@ int lbst_lookup(lbst_T root, int key, int *data) {
     struct lbst_node *ptr, *prev;
 
     root_private = root;
-    if (root_private == NULL) {
-        return 0;
-    }
+    assert(root_private);
 
     ptr = root_private->head;
     prev = NULL;
@@ -253,7 +248,9 @@ int lbst_is_empty(lbst_T root) {
     struct lbst *root_private;
 
     root_private = root;
-    if (root_private == NULL || root_private->head == NULL) {
+    assert(root_private);
+    
+    if (root_private->head == NULL) {
         return 1;
     }
 
@@ -285,9 +282,8 @@ void lbst_clear(lbst_T root) {
     struct lbst *root_private;
 
     root_private = root;
-    if (root_private == NULL) {
-        return;
-    }
+    assert(root_private);
+
     lbst_delete_descendants(root_private->head);
     root_private->head = NULL;
 }
@@ -328,9 +324,7 @@ void lbst_range_query(lbst_T root, int first, int last) {
     struct lbst_node *ptr, *prev;
 
     root_private = root;
-    if (root_private == NULL) {
-        return;
-    }
+    assert(root_private);
 
     ptr = root_private->head;
     prev = NULL;
@@ -363,9 +357,7 @@ void lbst_print(lbst_T root) {
     struct lbst_node *ptr, *prev;
 
     root_private = root;
-    if (root_private == NULL) {
-        return;
-    }
+    assert(root_private);
 
     /* Go to leftmost leaf node */
     ptr = root_private->head;

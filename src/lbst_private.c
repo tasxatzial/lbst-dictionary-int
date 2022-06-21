@@ -1,12 +1,12 @@
 #include <stdio.h>
+#include <assert.h>
 #include "lbst_private.h"
 
 
 /* Prints the full tree structure of the dictionary (preorder traversal) */
 void lbst_print_tree(struct lbst *root) {
-    if (root == NULL) {
-        return;
-    }
+    assert(root);
+
     lbst_print_subtree(root->head);
 }
 
