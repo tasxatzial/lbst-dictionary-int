@@ -3,15 +3,17 @@
 Leaf-oriented binary search trees are an alternative implementation of the 'dictionary' abstract data type. They are defined as:
 
 * Keys are stored in leaf nodes in non-decreasing order (left to right).
-* All internal nodes store keys (not neccessarily keys of the dictionary) such that the following are always true:
+* All internal nodes store keys such that the following are always true:
 
-  * The key of the left child of V is less than or equal to the key of V.
+  * The key of the left child of a node is less than or equal to the key of the node.
 
-  * The key of the right child of V is greater than the key of V.
+  * The key of the right child of a node is greater than the key of the node.
 
-Note that the definition implies that all internal nodes always have two child nodes.
+Note that the definition implies that all internal nodes always have two child nodes. Also, each leaf node has a pointer to the next leaf node.
 
-Also, each leaf has a pointer to the next leaf node. An example of a leaf-oriented binary search tree is depicted below.
+Every leaf node corresponds to a (key, value) pair in the dictionary. To get the keys in increasing order, start from the leftmost leaf node and follow the next pointers until the last leaf node is reached.
+
+An example of a leaf-oriented binary search tree is depicted below.
 
 ![alt text](../img/lbst.jpg)
 
