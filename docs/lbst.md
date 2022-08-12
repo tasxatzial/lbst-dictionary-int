@@ -9,34 +9,34 @@ Leaf-oriented binary search trees are an alternative implementation of the 'dict
 
   * The key of the right child of a node is greater than the key of the node.
 
-Note that the definition implies that all internal nodes always have two child nodes. Also, each leaf node has a pointer to the next leaf node.
+Note that the definition implies that internal nodes always have two child nodes. Also, each leaf node has a pointer to the next leaf node.
 
 Every leaf node corresponds to a (key, value) pair in the dictionary. To get the keys in increasing order, start from the leftmost leaf node and follow the next pointers until the last leaf node is reached.
 
 An example of a leaf-oriented binary search tree is depicted below.
 
-![alt text](../img/lbst.jpg)
+![alt text](img/lbst.png)
 
 ## Insert a new key
 
-1. Find the parent leaf node V' (has key K') of the new node V (has key K).
+1. Traverse the tree and find the parent leaf node L (has key Lk) of the new node C (has key Ck).
 
-2. Replace V' by a tree that consists of 3 nodes, a parent node and two child nodes. The key of both left child and V is defined as min(K, K'). The key of the right child is defined as the max(K, K').
+2. Replace L by a tree that consists of 3 nodes, a parent node and two child nodes. The key of the left child and the parent node is defined as min(Lk, Ck). The key of the right child is defined as max(Lk, Ck).
 
 3. Update the necessary pointers to the next leaf nodes.
 
-In the example below, key 1 is inserted.
+Example: key 1 is inserted.
 
-![alt text](../img/insert.jpg)
+![alt text](img/insert.png)
 
 ## Delete a key
 
-1. Find the leaf node V that has the key that will be deleted. Also, find the parent node V' of V.
+1. Traverse the tree and find the leaf node L that has the key that will be deleted. Also, find its parent node P.
 
-2. Delete both V and V' and connect the parent node of V' to the sibling of V.
+2. Delete both L and P and connect the parent node of P to the sibling of L.
 
 3. Update the necessary pointers to the next leaf nodes.
 
-In the example below, key 10 is deleted.
+Example: key 10 is deleted.
 
-![alt text](../img/delete.jpg)
+![alt text](img/delete.png)
