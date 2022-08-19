@@ -20,7 +20,7 @@ The following functions are provided:
 
 The library exposes the dictionary as an [opaque data type](https://en.wikipedia.org/wiki/Opaque_data_type).
 
-Internally the dictionary is stored as a leaf-oriented binary search tree structure. Time complexity of operations 'insert', 'delete', 'lookup' is O(tree_height) whereas 'range_query' has a complexity of O(tree_height + last - first). More details can be found in [lbst.md](docs/lbst.md) (english) and [lbst.pdf](docs/lbst.pdf) (greek).
+Internally the dictionary is stored as a leaf-oriented binary search tree structure. Time complexity of operations 'insert', 'delete', 'lookup' is O(tree_height) whereas 'range_query' has a complexity of O(tree_height + last - first). More details can be found in [lbst.md](lbst.md).
 
 For a more advanced version of the library that supports (char*, void*) pairs, see [lbst-dictionary](https://github.com/tasxatzial/lbst-dictionary).
 
