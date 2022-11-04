@@ -1,3 +1,4 @@
+# Makefile for use with address sanitizer by Google
 CFLAGS = -c -ansi -Wall -pedantic
 
 lbst_demo: main.o lbst.o lbst_private.o
