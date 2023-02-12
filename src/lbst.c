@@ -10,7 +10,9 @@ static void lbst_delete_descendants(struct lbst_node *node);
 /* Inserts a new (key, data) into the dictionary. If key is already in the
 dictionary, its data is updated.
 
-Returns 1 on success, else 0.
+Returns:
+* 1 If key was added/updated.
+* -1 On error.
 
 Time complexity: O(h) */
 int lbst_insert(lbst_T root, int key, int data) {
@@ -24,7 +26,7 @@ int lbst_insert(lbst_T root, int key, int data) {
     if (root_private->head == NULL) {
         ptr = malloc(sizeof(struct lbst_node));
         if (ptr == NULL) {
-            return 0;
+            return -1;
         }
         ptr->key = key;
         ptr->data = data;
@@ -59,9 +61,13 @@ int lbst_insert(lbst_T root, int key, int data) {
 
     /* create two new nodes n1, n2 */
     n1 = malloc(sizeof(struct lbst_node));
+    if (n1 == NULL) {
+        return -1;
+    }
     n2 = malloc(sizeof(struct lbst_node));
-    if (n1 == NULL || n2 == NULL) {
-        return 0;
+    if (n2 == NULL) {
+        free(n1);
+        return -1;
     }
     n1->rc = NULL;
     n1->lc = NULL;
@@ -110,8 +116,12 @@ int lbst_insert(lbst_T root, int key, int data) {
 
 /* Deletes a key from the dictionary.
 
+Returns:
+* 1 If the key is found and deleted.
+* 0 If the key is not found.
+
 Time complexity: O(h) */
-void lbst_delete(lbst_T root, int key) {
+int lbst_delete(lbst_T root, int key) {
     struct lbst *root_private;
     struct lbst_node *ptr, *ptr2, *child, *parent, *grparent, *last_right_child;
 
@@ -142,7 +152,7 @@ void lbst_delete(lbst_T root, int key) {
 
     /* nothing to do: key does not exist in the dictionary */
     if (child == NULL || child->key != key) {
-        return;
+        return 0;
     }
 
     /* key was found in a leaf but parent is NULL: root node has the key */
@@ -152,7 +162,7 @@ void lbst_delete(lbst_T root, int key) {
         child->rc = NULL;
         root_private->head = NULL;
         free(child);
-        return;
+        return 1;
     }
 
     /* start from from the left child of last_right_node and go to
@@ -207,6 +217,8 @@ void lbst_delete(lbst_T root, int key) {
     parent->lc = NULL;
     parent->rc = NULL;
     free(parent);
+
+    return 1;
 }
 
 
