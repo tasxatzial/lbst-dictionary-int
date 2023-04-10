@@ -1,8 +1,8 @@
-# lbst - A dictionary data structure
+# Leaf-oriented binary search trees
 
-Library for creating dictionaries, that is, sorted collections by key of (key, value) pairs.
+A data structure that can be used for storing dictionaries, which are sorted collections of (key, value) pairs, sorted by key.
 
-This version supports (key, value) pairs that have type (int, int). Pairs are sorted by key (ascending).
+This version supports (key, value) pairs that have type (int, int).
 
 The following functions are provided:
 
@@ -14,19 +14,19 @@ The following functions are provided:
 * lbst_print(d): Print the dictionary.
 * lbst_clear(d): Clear the dictionary.
 * lbst_destroy(d): Clear the dictionary. No other functions should be used after this one.
-* lbst_range_query(d, first, last): Print all (key, value) with key between first and last (inclusive).
+* lbst_range_query(d, first, last): Print all pairs with key between first and last (inclusive).
 
 ## Implementation
 
-The library exposes the dictionary as an [opaque data type](https://en.wikipedia.org/wiki/Opaque_data_type).
+The dictionary is defined as an [opaque data type](https://en.wikipedia.org/wiki/Opaque_data_type). The public interface is defined in [lbst.h](src/lbst.h).
 
-Internally the dictionary is stored as a leaf-oriented binary search tree structure. Time complexity of operations 'insert', 'delete', 'lookup' is O(tree_height) whereas 'range_query' has a complexity of O(tree_height + last - first). More details can be found in [lbst.md](lbst.md).
+Time complexity is O(tree_height) for 'insert', 'delete', 'lookup' and O(tree_height + number of keys) for 'range_query'. Details can be found in [lbst.md](lbst.md).
 
-For a more advanced version of the library that supports (char*, void*) pairs, see [lbst-dictionary](https://github.com/tasxatzial/lbst-dictionary).
+For a more advanced version of the library that supports (char*, void*) pairs, see [leaf-search-tree.c](https://github.com/tasxatzial/leaf-search-tree.c).
 
 ## Compile
 
-Build the library (functions declared in lbst.h):
+Build the library (functions declared in [lbst.h](src/lbst.h)):
 
 ```bash
 make lbst.o

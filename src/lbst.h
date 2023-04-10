@@ -11,9 +11,7 @@ dictionary, its data is updated.
 
 Returns:
 * 1 If key was added/updated.
-* -1 On error.
-
-Time complexity: O(h) */
+* -1 On error. */
 int lbst_insert(lbst_T root, int key, int data);
 
 
@@ -21,9 +19,7 @@ int lbst_insert(lbst_T root, int key, int data);
 
 Returns:
 * 1 If the key is found and deleted.
-* 0 If the key is not found.
-
-Time complexity: O(h) */
+* 0 If the key is not found. */
 int lbst_delete(lbst_T root, int key);
 
 
@@ -31,9 +27,7 @@ int lbst_delete(lbst_T root, int key);
 
 If key is found, its data is *data. Return value is 1.
 If key is not found, return value is 0. The specified data pointer should
-be ignored.
-
-Time complexity: O(h) */
+be ignored. */
 int lbst_lookup(lbst_T root, int key, int *data);
 
 
@@ -58,15 +52,11 @@ calling this one. */
 void lbst_destroy(lbst_T root);
 
 
-/* Prints (key, data) that satisfy first <= key <= last.
-
-Time complexity: O(h + last - first) */
+/* Prints all (key, data) that satisfy first <= key <= last. */
 void lbst_range_query(lbst_T root, int first, int last);
 
 
-/* Prints the dictionary. (key, data) pairs are sorted by key (ascending).
-
-Time complexity: O(h + #keys) */
+/* Prints the dictionary. (key, data) pairs are sorted by key (ascending). */
 void lbst_print(lbst_T root);
 
 #endif

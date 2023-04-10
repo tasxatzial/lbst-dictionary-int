@@ -329,9 +329,9 @@ static void lbst_delete_descendants(struct lbst_node *node) {
 }
 
 
-/* Prints (key, data) that satisfy first <= key <= last.
+/* Prints all (key, data) that satisfy first <= key <= last.
 
-Time complexity: O(h + last - first) */
+Time complexity: O(h + number of keys) */
 void lbst_range_query(lbst_T root, int first, int last) {
     struct lbst *root_private;
     struct lbst_node *ptr, *prev;
@@ -364,7 +364,7 @@ void lbst_range_query(lbst_T root, int first, int last) {
 
 /* Prints the dictionary. (key, data) pairs are sorted by key (ascending).
 
-Time complexity: O(h + #keys) */
+Time complexity: O(h + number of keys) */
 void lbst_print(lbst_T root) {
     struct lbst *root_private;
     struct lbst_node *ptr, *prev;
