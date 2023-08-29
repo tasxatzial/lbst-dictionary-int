@@ -302,9 +302,8 @@ void lbst_clear(lbst_T root) {
 }
 
 
-/* Destroys the dictionary. No other functions should be called after
-calling this one. */
-void lbst_destroy(lbst_T root) {
+/* Deletes the dictionary. */
+void lbst_free(lbst_T root) {
     struct lbst *root_private;
 
     root_private = root;

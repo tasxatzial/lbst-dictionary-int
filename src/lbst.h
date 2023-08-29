@@ -47,9 +47,8 @@ calling this one. */
 void lbst_clear(lbst_T root);
 
 
-/* Clears the dictionary. No other functions should be called after
-calling this one. */
-void lbst_destroy(lbst_T root);
+/* Deletes the dictionary. */
+void lbst_free(lbst_T root);
 
 
 /* Prints all (key, data) that satisfy first <= key <= last. */

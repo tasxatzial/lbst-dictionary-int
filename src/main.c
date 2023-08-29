@@ -86,10 +86,9 @@ int main() {
     /* check if empty */
     printf("Check if dictionary is empty (should print 1): %d\n", lbst_is_empty(root));
 
-    /* destroy dictionary.
-    We cannot call any other functions after this */
-    printf("Destroy dictionary\n");
-    lbst_destroy(root);
+    /* We cannot call any other functions after deleting the dictionary */
+    printf("Delete dictionary\n");
+    lbst_free(root);
 
     return 0;
 }

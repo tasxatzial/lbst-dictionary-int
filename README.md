@@ -13,7 +13,7 @@ The following functions are provided:
 * lbst_lookup(d, key, *value): Get the value associated with key.
 * lbst_print(d): Print the dictionary.
 * lbst_clear(d): Clear the dictionary.
-* lbst_destroy(d): Clear the dictionary. No other functions should be used after this one.
+* lbst_free(d): Delete the dictionary.
 * lbst_range_query(d, first, last): Print all pairs with key between first and last (inclusive).
 
 ## Implementation
