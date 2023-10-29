@@ -22,7 +22,7 @@ The dictionary is defined as an [opaque data type](https://en.wikipedia.org/wiki
 
 Time complexity is O(tree_height) for 'insert', 'delete', 'lookup' and O(tree_height + number of keys) for 'range_query'. Details can be found in [lbst.md](lbst.md).
 
-For a more advanced version of the library that supports (char*, void*) pairs, see [leaf-search-tree.c](https://github.com/tasxatzial/leaf-search-tree.c).
+For a more advanced version of the library that supports (char*, void*) pairs, see [leaf-search-tree](https://github.com/tasxatzial/leaf-search-tree).
 
 ## Compile
 
